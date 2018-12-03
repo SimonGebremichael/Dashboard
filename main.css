@@ -1,0 +1,205 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #222222;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#nav {
+    width: 100%;
+    height: 1px;
+    text-align: center;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+#nav p {
+    font-size: 25px;
+    margin-right: -35%;
+    color: lightblue;
+}
+
+
+
+
+
+
+
+#header {
+    height: 400px;
+}
+
+#header div {
+    float: left;
+    width: 33.3%;
+    height: 300px;
+}
+
+#header p {
+    font-size: 25px;
+    margin-left: 15%;
+    color: lightblue;
+}
+
+#time {
+    font-size: 60px;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding: 70px;
+    background-color: #222222;
+    border: 1px solid lightblue;
+    color: lightblue;
+}
+
+#time2 {
+    font-size: 60px;
+    margin-left: 30%;
+    margin-top: 10%;
+    padding: 70px;
+    background-color: #222222;
+    border: none;
+    color: lightblue;
+}
+
+#time3 {
+    font-size: 60px;
+    margin-left: 30%;
+    margin-top: 10%;
+    padding: 70px;
+    background-color: #222222;
+    border: none;
+    color: lightblue;
+}
+
+
+
+
+
+
+
+
+
+
+#cont {
+    height: 300px;
+    clear: both;
+    margin-top: 80px;
+}
+
+#cont div {
+    float: left;
+    width: 33.3%;
+    height: 100%;
+}
+
+#cont img {
+    width: 30%;
+    margin-left: 45%;
+    height: 60%;
+    margin-top: -20px;
+}
+
+#con2 {
+    color: white;
+    color: lightblue;
+}
+
+#cityName {
+    float: left;
+}
+
+#citybar {
+    border: none;
+    float: right;
+    margin-top: 15px;
+    opacity: 0.2;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+#citybar:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+hr {
+    clear: both;
+}
+
+#con3 p {
+    font-size: 90px;
+    margin-left: 40%;
+    margin-top: 5%;
+    color: lightblue;
+    float: left;
+}
+
+#Deg {
+    float: left;
+    font-size: 50px;
+    color: lightblue;
+}
+
+
+
+
+
+#bot {
+    clear: both;
+    width: 100%;
+    height: 500px;
+    margin-top: 60px;
+}
+
+#art {
+    height: 500px;
+}
+
+#news {
+    float: left;
+    width: 50%;
+    height: 300px;
+    margin-left: 10%;
+    color: lightblue;
+}
+
+#news a {
+    text-decoration: none;
+    color: gray;
+}
+
+#newsbot h3 {
+    float: left;
+    width: 100%;
+}
+
+#bot img {
+    float: left;
+    width: 30%;
+    height: 70%;
+    margin-left: 5%;
+    border: 1px solid black;
+}
+
+#myart {
+    clear: both;
+}
+
+#search input {
+    float: left;
+    padding: 15px;
+    border: 1px solid lightblue;
+}
+
+#searchvalue {
+    margin-left: 10%;
+    color: lightblue;
+    background-color: #222222;
+
+}
+
+#bar {
+    background-color: lightblue;
+    color: black;
+    border: none;
+}

@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>Assign</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css" />
+    <script src="PrintTime.js"></script>
+    <script src="PrintWeather.js"></script>
+    <script src="PrintNews.js"></script>
+</head>
+
+<body onload="update(false)">
+
+
+    <div id="nav">
+        <p>we are now through...</p>
+    </div>
+
+
+    <div id="header">
+        <div id="pad1">
+            <input value="" id="time" type="button" onclick="theswitch()"/>
+            <center>
+                <p id="day"></p>
+            </center>
+            <center>
+                <p id="month"></p>
+            </center>
+        </div>
+
+
+
+
+        <div id="pad2">
+            <button id="time2"></button>
+            <center>
+                <p style="margin-left: -10px;">...of the day</p>
+            </center>
+        </div>
+
+        <div id="pad3">
+            <button id="time3"></button>
+            <center>
+                <p style="margin-left: -10px;">...of the year</p>
+            </center>
+        </div>
+    </div>
+
+
+
+
+    <div id="cont">
+        <div id="con1"><img id="cityImg" src="img/sun.png" /></div>
+        
+        <div id="con2">
+            
+            <h2 id="cityName"></h2>
+            <input type="button" id="citybar" value="city" onclick="map(true)"/>
+            <hr color="lightblue">
+            
+  
+            <h2 style="float: left;" id="cityTemp"></h2>
+            <h2 style="float: left; margin-left: 22%;" id="citySpeed">humidity:</h2>
+            <h2 style="float: right;" id="CityDec"></h2>
+         
+        </div>
+
+        <div id="con3"><p id="cityTemp2">0</p><div id="Deg">o</div></div>
+    </div>
+
+    <div id="bot">
+        <div id="search">
+            <input type="text" id="searchvalue" placeholder="Topics [trump, shows,..]"/>
+            <input type="button" id="bar" value="update" onclick="update(true)"/>
+        </div>
+        <p id="myart"></p>
+        
+    </div>
+</body>
+
+</html>
