@@ -81,7 +81,7 @@ $.ajax({
             $("#cityImg").attr("src", "img/sun.png");
         }
     },
-    url: 'http://api.openweathermap.org/data/2.5/find?q=' + 'Kitchener' + '&appid=3a0af56df08b2f1ba9ac41598dcabbea&units=metric'
+    url: 'https://api.openweathermap.org/data/2.5/find?q=' + 'Kitchener' + '&appid=3a0af56df08b2f1ba9ac41598dcabbea&units=metric'
 });
 
 
