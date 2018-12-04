@@ -1,3 +1,6 @@
+$(document).ready(function() {
+
+
 var topic = "canada";
 function update(turn) {
     if (turn == true) {
@@ -60,3 +63,4 @@ function update(turn) {
 
     map(false);
 }
+});

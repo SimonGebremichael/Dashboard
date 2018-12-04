@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var loc = "Kitchener";
 
 function map(city) {
@@ -36,3 +37,4 @@ function map(city) {
     });
 
 }
+});
