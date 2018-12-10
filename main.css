@@ -203,3 +203,12 @@ hr {
     color: black;
     border: none;
 }
+
+#mysearch{
+    margin-left: 5%;
+}
+#mysearch img{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
