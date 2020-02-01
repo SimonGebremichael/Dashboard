@@ -18,14 +18,5 @@
     "es6",
     "problem",
     "solving"
-  ],
-  "author": "Rich Hildred",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rhildred/es6test/issues"
-  },
-  "homepage": "https://github.com/rhildred/es6test#readme",
-  "dependencies": {
-    "express": "*"
-  }
+  ]
 }
