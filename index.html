@@ -1,188 +1,212 @@
 <html>
-
-<head>
-    <title>Assign</title> 
+  <head>
+    <title>Dashboard | Feed</title>
     <link rel="stylesheet" href="main.css" />
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="PrintTime.js"></script>
     <script src="PrintWeather.js"></script>
     <script src="PrintNews.js"></script>
-</head>
+  </head>
 
-<body>
-
-
+  <body>
     <div id="nav">
-        <p>we are now through...</p>
+      <p>we are now through...</p>
     </div>
-
 
     <div id="header">
-        <div id="pad1">
-            <input value="" id="time" type="button" onclick="theswitch()"/>
-            <center>
-                <p id="day"></p>
-            </center>
-            <center>
-                <p id="month"></p>
-            </center>
-        </div>
+      <div id="pad1">
+        <input value="" id="time" type="button" onclick="theswitch()" />
+        <center>
+          <p id="day"></p>
+        </center>
+        <center>
+          <p id="month"></p>
+        </center>
+      </div>
 
+      <div id="pad2">
+        <button id="time2"></button>
+        <center>
+          <p style="margin-left: -10px;">...of the day</p>
+        </center>
+      </div>
 
-
-
-        <div id="pad2">
-            <button id="time2"></button>
-            <center>
-                <p style="margin-left: -10px;">...of the day</p>
-            </center>
-        </div>
-
-        <div id="pad3">
-            <button id="time3"></button>
-            <center>
-                <p style="margin-left: -10px;">...of the year</p>
-            </center>
-        </div>
+      <div id="pad3">
+        <button id="time3"></button>
+        <center>
+          <p style="margin-left: -10px;">...of the year</p>
+        </center>
+      </div>
     </div>
 
-
-
-
     <div id="cont">
-        <div id="con1"><img id="cityImg" src="img/sun.png" /></div>
-        
-        <div id="con2">
-            
-            <h2 id="cityName"></h2>
-            <input type="button" id="citybar" value="city" onclick="map(true)"/>
-            <hr color="lightblue">
-            
-  
-            <h2 style="float: left;" id="cityTemp"></h2>
-            <h2 style="float: left; margin-left: 22%;" id="citySpeed">humidity:</h2>
-            <h2 style="float: right;" id="CityDec"></h2>
-         
-        </div>
+      <div id="con1"><img id="cityImg" src="img/sun.png" /></div>
 
-        <div id="con3"><p id="cityTemp2">0</p><div id="Deg">o</div></div>
+      <div id="con2">
+        <h2 id="cityName"></h2>
+        <input type="button" id="citybar" value="city" onclick="map(true)" />
+        <hr color="lightblue" />
+
+        <h2 style="float: left;" id="cityTemp"></h2>
+        <h2 style="float: left; margin-left: 22%;" id="citySpeed">humidity:</h2>
+        <h2 style="float: right;" id="CityDec"></h2>
+      </div>
+
+      <div id="con3">
+        <p id="cityTemp2">0</p>
+        <div id="Deg">o</div>
+      </div>
     </div>
 
     <div id="bot">
-        <div id="search">
-            <input type="text" id="searchvalue" placeholder="Topics [trump, shows,..]"/>
-            <input type="button" id="bar" value="update" onclick="update(true)"/>
-        </div>
-        <p id="myart"></p>
-        <div id="mysearch">
-            <a href="https://www.facebook.com/" target="_blank"><img src="img/face.png"/></a>
-            <a href="https://twitter.com/" target="_blank"><img src="img/twit.png"/></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="img/ig.png"/></a>
-        </div>
+      <div id="search">
+        <input
+          type="text"
+          id="searchvalue"
+          placeholder="Topics [trump, shows,..]"
+        />
+        <input type="button" id="bar" value="update" onclick="update(true)" />
+      </div>
+      <p id="myart"></p>
+      <div id="mysearch">
+        <a href="https://www.facebook.com/" target="_blank"
+          ><img src="img/face.png"
+        /></a>
+        <a href="https://twitter.com/" target="_blank"
+          ><img src="img/twit.png"
+        /></a>
+        <a href="https://www.instagram.com" target="_blank"
+          ><img src="img/ig.png"
+        /></a>
+      </div>
     </div>
 
-
-    <script>  
-    var loc = "Kitchener";
-    function map(city) {
+    <script>
+      var loc = "Kitchener";
+      function map(city) {
         if (city == true) {
-            loc = prompt("change city?");
+          loc = prompt("change city?");
         }
 
         $.ajax({
-            dataType: 'json',
-            success: function (data) {
-                $("#cityName").text(data.list[0].name);
-                $("#cityName").append(", " + data.list[0].sys.country);
-                $("#cityTemp").text(data.list[0].main.temp);
-                $("#cityTemp2").text(Math.round(data.list[0].main.temp), 0);
-                
-                $("#cityhumidity").text("humidity: " + data.list[0].main.humidity);
-                $("#CityDec").text(data.list[0].weather[0].description);
+          dataType: "json",
+          success: function (data) {
+            $("#cityName").text(data.list[0].name);
+            $("#cityName").append(", " + data.list[0].sys.country);
+            $("#cityTemp").text(data.list[0].main.temp);
+            $("#cityTemp2").text(Math.round(data.list[0].main.temp), 0);
 
-                if (data.list[0].weather[0].main == "Clear") {
-                    $("#cityImg").attr("src", "img/sun.png");
-                } else if (data.list[0].weather[0].main == "Clouds") {
-                    $("#cityImg").attr("src", "img/cloud.png");
-                } else if (data.list[0].weather[0].main == "Fog") {
-                    $("#cityImg").attr("src", "img/fog.png");
-                } else if (data.list[0].weather[0].main == "Rain") {
-                    $("#cityImg").attr("src", "img/Rain.png");
-                }else if (data.list[0].weather[0].main == "Snow") {
-                    $("#cityImg").attr("src", "img/snow.png");
-                }else if (data.list[0].weather[0].main == "Mist") {
-                    $("#cityImg").attr("src", "img/mist.png");
-                } else {
-                    $("#cityImg").attr("src", "img/sun.png");
-                }
-            },
-            url: 'https://api.openweathermap.org/data/2.5/find?q=' + loc + '&appid=3a0af56df08b2f1ba9ac41598dcabbea&units=metric'
-        }); 
-    }
-    
-    
-        function update(turn) {
-            if (turn == true) {
-                topic = document.getElementById("searchvalue").value;
+            $("#cityhumidity").text("humidity: " + data.list[0].main.humidity);
+            $("#CityDec").text(data.list[0].weather[0].description);
+
+            if (data.list[0].weather[0].main == "Clear") {
+              $("#cityImg").attr("src", "img/sun.png");
+            } else if (data.list[0].weather[0].main == "Clouds") {
+              $("#cityImg").attr("src", "img/cloud.png");
+            } else if (data.list[0].weather[0].main == "Fog") {
+              $("#cityImg").attr("src", "img/fog.png");
+            } else if (data.list[0].weather[0].main == "Rain") {
+              $("#cityImg").attr("src", "img/Rain.png");
+            } else if (data.list[0].weather[0].main == "Snow") {
+              $("#cityImg").attr("src", "img/snow.png");
+            } else if (data.list[0].weather[0].main == "Mist") {
+              $("#cityImg").attr("src", "img/mist.png");
+            } else {
+              $("#cityImg").attr("src", "img/sun.png");
             }
-            
-            if (topic != "") {   
-                $.ajax({       
-                    dataType: 'json',
-                    url: 'https://newsapi.org/v2/everything?q='+ topic +'&sortBy=popularity&apiKey=491332b3c0e8402b9371b5f1377486ef',
-                    success: function (data) {
-                
-                        document.getElementById("myart").innerHTML = "";
-                        for (var i = 0; i <= 2; i++) {
-                            document.getElementById("myart").innerHTML += '<div id="art"><div id="news">' +
-                                '<h2 id="newsTit' + i + '"></h2>' +
-                                '<h3 id="newsName' + i + '"><font color="gray">Source:</font></h3>' +
-                                '<h3 id="newsAuthor' + i + '"><font color="gray">Author:</font></h3>' +
-                                '<h3 id="newsDate' + i + '"><font color="gray">Date:</font></h3>' +
-                                '<font color="gray"><h3>Link:<a id="link1' + i + '" href="" target="_blank"></a></h3></font>' +
-                                '<div id="newsbot' + i + '"><h3 id="newsDes' + i + '"></h3><h3 id="newsCon' + i + '"></h3></div></div><img src="img/sun.png" id="newsPic' + i + '" /></div>';
+          },
+          url:
+            "https://api.openweathermap.org/data/2.5/find?q=" +
+            loc +
+            "&appid=3a0af56df08b2f1ba9ac41598dcabbea&units=metric",
+        });
+      }
 
-                            //print tittle
-                            $("#newsTit" + i).text(data.articles[i].title);
+      function update(turn) {
+        if (turn == true) {
+          topic = document.getElementById("searchvalue").value;
+        }
 
-                            //print news source
-                            $("#newsName" + i).append(" " + data.articles[i].source.id);
-                            if(data.articles[i].source.id == null){
-                                $("#newsName" + i).append(" " + data.articles[i].source.name);
-                            }
+        if (topic != "") {
+          $.ajax({
+            dataType: "json",
+            url:
+              "https://newsapi.org/v2/everything?q=" +
+              topic +
+              "&sortBy=popularity&apiKey=491332b3c0e8402b9371b5f1377486ef",
+            success: function (data) {
+              document.getElementById("myart").innerHTML = "";
+              for (var i = 0; i <= 2; i++) {
+                document.getElementById("myart").innerHTML +=
+                  '<div id="art"><div id="news">' +
+                  '<h2 id="newsTit' +
+                  i +
+                  '"></h2>' +
+                  '<h3 id="newsName' +
+                  i +
+                  '"><font color="gray">Source:</font></h3>' +
+                  '<h3 id="newsAuthor' +
+                  i +
+                  '"><font color="gray">Author:</font></h3>' +
+                  '<h3 id="newsDate' +
+                  i +
+                  '"><font color="gray">Date:</font></h3>' +
+                  '<font color="gray"><h3>Link:<a id="link1' +
+                  i +
+                  '" href="" target="_blank"></a></h3></font>' +
+                  '<div id="newsbot' +
+                  i +
+                  '"><h3 id="newsDes' +
+                  i +
+                  '"></h3><h3 id="newsCon' +
+                  i +
+                  '"></h3></div></div><img src="img/sun.png" id="newsPic' +
+                  i +
+                  '" /></div>';
 
-                            $("#newsAuthor" + i).append(" " + data.articles[i].author);
+                //print tittle
+                $("#newsTit" + i).text(data.articles[i].title);
 
-                            var dat = data.articles[0].publishedAt.split("T");
-                            $("#newsDate" + i).append(" " + dat[0]);
+                //print news source
+                $("#newsName" + i).append(" " + data.articles[i].source.id);
+                if (data.articles[i].source.id == null) {
+                  $("#newsName" + i).append(" " + data.articles[i].source.name);
+                }
 
-                            $("#link1" + i).attr("href", data.articles[i].url);
-                            $("#link1" + i).append(" " + data.articles[i].url);
+                $("#newsAuthor" + i).append(" " + data.articles[i].author);
 
-                            $("#newsDes" + i).text(data.articles[i].description);
-                            $("#newsDes" + i).text(data.articles[i].content);
+                var dat = data.articles[0].publishedAt.split("T");
+                $("#newsDate" + i).append(" " + dat[0]);
 
-                            
-                            $("#newsPic" + i).attr("src", data.articles[i].urlToImage);
-                            if(data.articles[i].urlToImage == ""){
-                                $("#newsPic" + i).attr("src", "img/loadpic.png");
-                            }
-                            
-                        }
-                    },
-                    error: function (data) {
-                        document.getElementById("myart").innerHTML = "<div id='art'><div id='news'>"+
-                        "status: " + data.status + "<br>" +
-                        "code: " + data.code + "<br>" +
-                        "message: "+ data.message +
-                        "</div></div>";
-                    }
-                });
-            }  
-    }
+                $("#link1" + i).attr("href", data.articles[i].url);
+                $("#link1" + i).append(" " + data.articles[i].url);
+
+                $("#newsDes" + i).text(data.articles[i].description);
+                $("#newsDes" + i).text(data.articles[i].content);
+
+                $("#newsPic" + i).attr("src", data.articles[i].urlToImage);
+                if (data.articles[i].urlToImage == "") {
+                  $("#newsPic" + i).attr("src", "img/loadpic.png");
+                }
+              }
+            },
+            error: function (data) {
+              document.getElementById("myart").innerHTML =
+                "<div id='art'><div id='news'>" +
+                "status: " +
+                data.status +
+                "<br>" +
+                "code: " +
+                data.code +
+                "<br>" +
+                "message: " +
+                data.message +
+                "</div></div>";
+            },
+          });
+        }
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
